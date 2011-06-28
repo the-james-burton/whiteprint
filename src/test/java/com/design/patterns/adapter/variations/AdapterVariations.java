@@ -1,6 +1,7 @@
-package com.design.patterns.adapter;
+package com.design.patterns.adapter.variations;
 
 import org.junit.Test;
+
 
 public class AdapterVariations {
     WhatIUse   whatIUse   = new WhatIUse();

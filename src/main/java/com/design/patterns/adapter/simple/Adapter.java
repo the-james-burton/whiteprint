@@ -1,4 +1,5 @@
-package com.design.patterns.adapter;
+package com.design.patterns.adapter.simple;
+
 
 class Adapter extends Target {
     private final Adaptee adaptee;

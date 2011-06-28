@@ -1,6 +1,7 @@
-package com.design.patterns.adapter;
+package com.design.patterns.adapter.simple;
 
 import org.junit.Test;
+
 
 public class SimpleAdapter {
     Adaptee a = new Adaptee();

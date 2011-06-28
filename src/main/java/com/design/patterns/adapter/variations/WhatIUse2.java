@@ -1,4 +1,4 @@
-package com.design.patterns.adapter;
+package com.design.patterns.adapter.variations;
 
 class WhatIUse2 extends WhatIUse {
     public void op(WhatIHave wih) {
