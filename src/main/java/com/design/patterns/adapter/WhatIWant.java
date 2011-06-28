@@ -1,5 +1,5 @@
 package com.design.patterns.adapter;
 
-public interface WhatIWant {
+interface WhatIWant {
     void f();
 }

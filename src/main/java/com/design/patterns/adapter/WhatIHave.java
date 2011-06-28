@@ -1,6 +1,6 @@
 package com.design.patterns.adapter;
 
-public class WhatIHave {
+class WhatIHave {
     public void g() {
     }
 

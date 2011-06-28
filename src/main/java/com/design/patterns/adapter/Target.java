@@ -1,6 +1,6 @@
 package com.design.patterns.adapter;
 
-public class Target {
+class Target {
     public void request() {
     }
 }

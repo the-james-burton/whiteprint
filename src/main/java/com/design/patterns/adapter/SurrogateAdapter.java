@@ -1,6 +1,6 @@
 package com.design.patterns.adapter;
 
-public class SurrogateAdapter implements WhatIWant {
+class SurrogateAdapter implements WhatIWant {
     WhatIHave whatIHave;
 
     public SurrogateAdapter(WhatIHave wih) {

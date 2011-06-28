@@ -1,6 +1,6 @@
 package com.design.patterns.adapter;
 
-public class Adaptee {
+class Adaptee {
     public void specificRequest() {
         System.out.println("Adaptee: SpecificRequest");
     }

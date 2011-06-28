@@ -1,6 +1,6 @@
 package com.design.patterns.adapter;
 
-public class Adapter extends Target {
+class Adapter extends Target {
     private final Adaptee adaptee;
 
     public Adapter(Adaptee a) {
