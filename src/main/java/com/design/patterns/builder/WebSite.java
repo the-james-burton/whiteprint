@@ -1,3 +1,4 @@
 package com.design.patterns.builder;
 
-class WebSite extends Media {}
+class WebSite extends Media {
+}
