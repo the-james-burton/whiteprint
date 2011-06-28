@@ -1,6 +1,3 @@
-// : bridge:BridgeStructure.java
-// A demonstration of the structure and operation
-// of the Bridge Pattern.
 package com.design.patterns.bridge;
 
 import org.junit.Test;
@@ -8,8 +5,7 @@ import org.junit.Test;
 public class BridgeStructure {
     @Test
     public void test1() {
-        // Here, the implementation is determined by
-        // the client at creation time:
+        // Here, the implementation is determined by the client at creation time:
         ClientService1 cs1 = new ClientService1(new Implementation1());
         cs1.serviceA();
         cs1.serviceB();
