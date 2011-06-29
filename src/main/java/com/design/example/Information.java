@@ -1,6 +1,5 @@
 package com.design.example;
 
-
 /**
  * Test class to be used for various purposes.
  */

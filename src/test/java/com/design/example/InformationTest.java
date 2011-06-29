@@ -1,4 +1,5 @@
 package com.design.example;
+
 import static org.junit.Assert.assertNotNull;
 
 import java.util.logging.Logger;
