@@ -1,11 +1,13 @@
 package com.design.patterns.factory;
 
 class KillAndDismember implements GameElementFactory {
-    public Player makePlayer() {
-        return new KungFuGuy();
+    @Override
+    public Obstacle makeObstacle() {
+	return new NastyWeapon();
     }
 
-    public Obstacle makeObstacle() {
-        return new NastyWeapon();
+    @Override
+    public Player makePlayer() {
+	return new KungFuGuy();
     }
 }

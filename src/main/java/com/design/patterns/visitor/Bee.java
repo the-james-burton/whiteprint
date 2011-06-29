@@ -1,15 +1,18 @@
 package com.design.patterns.visitor;
 
 class Bee implements Visitor {
-    public void visit(Gladiolus g) {
-        System.out.println("Bee and Gladiolus");
+    @Override
+    public void visit(final Chrysanthemum c) {
+	System.out.println("Bee and Chrysanthemum");
     }
 
-    public void visit(Runuculus r) {
-        System.out.println("Bee and Runuculus");
+    @Override
+    public void visit(final Gladiolus g) {
+	System.out.println("Bee and Gladiolus");
     }
 
-    public void visit(Chrysanthemum c) {
-        System.out.println("Bee and Chrysanthemum");
+    @Override
+    public void visit(final Runuculus r) {
+	System.out.println("Bee and Runuculus");
     }
 }

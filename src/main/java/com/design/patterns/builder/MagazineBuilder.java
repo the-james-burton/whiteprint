@@ -3,17 +3,20 @@ package com.design.patterns.builder;
 class MagazineBuilder extends MediaBuilder {
     private Magazine m;
 
+    @Override
+    public void addMediaItem(final MediaItem article) {
+	System.out.println("Adding article " + article);
+	this.m.add(article);
+    }
+
+    @Override
     public void buildBase() {
-        System.out.println("Building magazine framework");
-        m = new Magazine();
+	System.out.println("Building magazine framework");
+	this.m = new Magazine();
     }
 
-    public void addMediaItem(MediaItem article) {
-        System.out.println("Adding article " + article);
-        m.add(article);
-    }
-
+    @Override
     public Media getFinishedMedia() {
-        return m;
+	return this.m;
     }
 }

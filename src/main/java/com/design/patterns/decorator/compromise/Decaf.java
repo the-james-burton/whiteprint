@@ -1,11 +1,12 @@
 package com.design.patterns.decorator.compromise;
 
 class Decaf extends Decorator {
-    public Decaf(DrinkComponent component) {
-        super(component);
+    public Decaf(final DrinkComponent component) {
+	super(component);
     }
 
+    @Override
     public String getDescription() {
-        return component.getDescription() + " decaf";
+	return this.component.getDescription() + " decaf";
     }
 }

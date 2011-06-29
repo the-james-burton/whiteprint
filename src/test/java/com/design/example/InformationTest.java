@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class InformationTest {
     /** Standard java logging */
-    Logger      log = Logger.getLogger(this.getClass().getName());
+    Logger log = Logger.getLogger(this.getClass().getName());
     /** Reference to our class under test */
     Information information;
 
@@ -21,7 +21,7 @@ public class InformationTest {
      */
     @Before
     public void before() {
-        information = new Information();
+	this.information = new Information();
     }
 
     /**
@@ -29,8 +29,8 @@ public class InformationTest {
      */
     @Test
     public void information() {
-        Long ping = information.ping();
-        assertNotNull(ping);
-        log.info(ping.toString());
+	final Long ping = this.information.ping();
+	assertNotNull(ping);
+	this.log.info(ping.toString());
     }
 }

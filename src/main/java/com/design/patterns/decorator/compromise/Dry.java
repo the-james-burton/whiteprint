@@ -1,11 +1,12 @@
 package com.design.patterns.decorator.compromise;
 
 class Dry extends Decorator {
-    public Dry(DrinkComponent component) {
-        super(component);
+    public Dry(final DrinkComponent component) {
+	super(component);
     }
 
+    @Override
     public String getDescription() {
-        return component.getDescription() + " extra foamed milk";
+	return this.component.getDescription() + " extra foamed milk";
     }
 }

@@ -7,8 +7,8 @@ public class KissingPrincessTest {
 
     @Test
     public void test() {
-        beast.greet();
-        beast.kiss();
-        beast.greet();
+	this.beast.greet();
+	this.beast.kiss();
+	this.beast.greet();
     }
 }

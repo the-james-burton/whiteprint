@@ -4,16 +4,17 @@ import java.util.Iterator;
 import java.util.List;
 
 class MediaDirector { // a.k.a. "Context"
-    private MediaBuilder mb;
+    private final MediaBuilder mb;
 
-    public MediaDirector(MediaBuilder mb) {
-        this.mb = mb; // Strategy-ish
+    public MediaDirector(final MediaBuilder mb) {
+	this.mb = mb; // Strategy-ish
     }
 
-    public Media produceMedia(List input) {
-        mb.buildBase();
-        for (Iterator it = input.iterator(); it.hasNext();)
-            mb.addMediaItem((MediaItem) it.next());
-        return mb.getFinishedMedia();
+    public Media produceMedia(final List input) {
+	this.mb.buildBase();
+	for (final Iterator it = input.iterator(); it.hasNext();) {
+	    this.mb.addMediaItem((MediaItem) it.next());
+	}
+	return this.mb.getFinishedMedia();
     }
 }

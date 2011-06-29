@@ -1,15 +1,15 @@
 package com.design.patterns.facade;
 
 public class Facade {
-    A makeA(int x) {
-        return new A(x);
+    A makeA(final int x) {
+	return new A(x);
     }
 
-    B makeB(long x) {
-        return new B(x);
+    B makeB(final long x) {
+	return new B(x);
     }
 
-    C makeC(double x) {
-        return new C(x);
+    C makeC(final double x) {
+	return new C(x);
     }
 }

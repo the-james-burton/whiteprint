@@ -3,63 +3,67 @@ package com.design.patterns.observer;
 import java.util.Observable;
 
 class Flower {
-    private boolean       isOpen;
-    private OpenNotifier  oNotify = new OpenNotifier();
-    private CloseNotifier cNotify = new CloseNotifier();
+    private class CloseNotifier extends Observable {
+	private boolean alreadyClosed = false;
 
-    public Flower() {
-        isOpen = false;
-    }
+	@Override
+	public void notifyObservers() {
+	    if (!Flower.this.isOpen && !this.alreadyClosed) {
+		setChanged();
+		super.notifyObservers();
+		this.alreadyClosed = true;
+	    }
+	}
 
-    public void open() { // Opens its petals
-        isOpen = true;
-        oNotify.notifyObservers();
-        cNotify.open();
-    }
-
-    public void close() { // Closes its petals
-        isOpen = false;
-        cNotify.notifyObservers();
-        oNotify.close();
-    }
-
-    public Observable opening() {
-        return oNotify;
-    }
-
-    public Observable closing() {
-        return cNotify;
+	public void open() {
+	    this.alreadyClosed = false;
+	}
     }
 
     private class OpenNotifier extends Observable {
-        private boolean alreadyOpen = false;
+	private boolean alreadyOpen = false;
 
-        public void notifyObservers() {
-            if (isOpen && !alreadyOpen) {
-                setChanged();
-                super.notifyObservers();
-                alreadyOpen = true;
-            }
-        }
+	public void close() {
+	    this.alreadyOpen = false;
+	}
 
-        public void close() {
-            alreadyOpen = false;
-        }
+	@Override
+	public void notifyObservers() {
+	    if (Flower.this.isOpen && !this.alreadyOpen) {
+		setChanged();
+		super.notifyObservers();
+		this.alreadyOpen = true;
+	    }
+	}
     }
 
-    private class CloseNotifier extends Observable {
-        private boolean alreadyClosed = false;
+    private boolean isOpen;
 
-        public void notifyObservers() {
-            if (!isOpen && !alreadyClosed) {
-                setChanged();
-                super.notifyObservers();
-                alreadyClosed = true;
-            }
-        }
+    private final OpenNotifier oNotify = new OpenNotifier();
 
-        public void open() {
-            alreadyClosed = false;
-        }
+    private final CloseNotifier cNotify = new CloseNotifier();
+
+    public Flower() {
+	this.isOpen = false;
+    }
+
+    public void close() { // Closes its petals
+	this.isOpen = false;
+	this.cNotify.notifyObservers();
+	this.oNotify.close();
+    }
+
+    public Observable closing() {
+	return this.cNotify;
+    }
+
+    public void open() { // Opens its petals
+	this.isOpen = true;
+	this.oNotify.notifyObservers();
+	this.cNotify.open();
+    }
+
+    public Observable opening() {
+	return this.oNotify;
     }
 }

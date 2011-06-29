@@ -3,21 +3,21 @@ package com.design.patterns.adapter.variations;
 import org.junit.Test;
 
 public class AdapterVariationsTest {
-    WhatIUse   whatIUse   = new WhatIUse();
-    WhatIHave  whatIHave  = new WhatIHave();
-    WhatIWant  adapt      = new SurrogateAdapter(whatIHave);
-    WhatIUse2  whatIUse2  = new WhatIUse2();
+    WhatIUse whatIUse = new WhatIUse();
+    WhatIHave whatIHave = new WhatIHave();
+    WhatIWant adapt = new SurrogateAdapter(this.whatIHave);
+    WhatIUse2 whatIUse2 = new WhatIUse2();
     WhatIHave2 whatIHave2 = new WhatIHave2();
     WhatIHave3 whatIHave3 = new WhatIHave3();
 
     @Test
     public void test() {
-        whatIUse.op(adapt);
-        // Approach 2:
-        whatIUse2.op(whatIHave);
-        // Approach 3:
-        whatIUse.op(whatIHave2);
-        // Approach 4:
-        whatIUse.op(whatIHave3.whatIWant());
+	this.whatIUse.op(this.adapt);
+	// Approach 2:
+	this.whatIUse2.op(this.whatIHave);
+	// Approach 3:
+	this.whatIUse.op(this.whatIHave2);
+	// Approach 4:
+	this.whatIUse.op(this.whatIHave3.whatIWant());
     }
 }

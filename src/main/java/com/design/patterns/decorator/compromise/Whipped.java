@@ -1,17 +1,19 @@
 package com.design.patterns.decorator.compromise;
 
 class Whipped extends Decorator {
-    private float cost = 0.50f;
+    private final float cost = 0.50f;
 
-    public Whipped(DrinkComponent component) {
-        super(component);
+    public Whipped(final DrinkComponent component) {
+	super(component);
     }
 
-    public float getTotalCost() {
-        return cost + component.getTotalCost();
-    }
-
+    @Override
     public String getDescription() {
-        return component.getDescription() + " whipped cream";
+	return this.component.getDescription() + " whipped cream";
+    }
+
+    @Override
+    public float getTotalCost() {
+	return this.cost + this.component.getTotalCost();
     }
 }

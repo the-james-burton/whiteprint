@@ -1,23 +1,28 @@
 package com.design.patterns.multipledispatch;
 
 class Scissors implements Item {
-    public Outcome compete(Item it) {
-        return it.eval(this);
+    @Override
+    public Outcome compete(final Item it) {
+	return it.eval(this);
     }
 
-    public Outcome eval(Paper p) {
-        return Outcome.LOSE;
+    @Override
+    public Outcome eval(final Paper p) {
+	return Outcome.LOSE;
     }
 
-    public Outcome eval(Scissors s) {
-        return Outcome.DRAW;
+    @Override
+    public Outcome eval(final Rock r) {
+	return Outcome.WIN;
     }
 
-    public Outcome eval(Rock r) {
-        return Outcome.WIN;
+    @Override
+    public Outcome eval(final Scissors s) {
+	return Outcome.DRAW;
     }
 
+    @Override
     public String toString() {
-        return "Scissors";
+	return "Scissors";
     }
 }

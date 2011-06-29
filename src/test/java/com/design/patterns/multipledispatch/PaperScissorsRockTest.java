@@ -7,8 +7,8 @@ public class PaperScissorsRockTest {
 
     @Test
     public void test() {
-        for (int i = 0; i < SIZE; i++) {
-            Compete.match(ItemGenerator.newItem(), ItemGenerator.newItem());
-        }
+	for (int i = 0; i < this.SIZE; i++) {
+	    Compete.match(ItemGenerator.newItem(), ItemGenerator.newItem());
+	}
     }
 }

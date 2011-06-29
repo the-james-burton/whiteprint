@@ -1,17 +1,19 @@
 package com.design.patterns.decorator.compromise;
 
 class ExtraEspresso extends Decorator {
-    private float cost = 0.75f;
+    private final float cost = 0.75f;
 
-    public ExtraEspresso(DrinkComponent component) {
-        super(component);
+    public ExtraEspresso(final DrinkComponent component) {
+	super(component);
     }
 
+    @Override
     public String getDescription() {
-        return component.getDescription() + " extra espresso";
+	return this.component.getDescription() + " extra espresso";
     }
 
+    @Override
     public float getTotalCost() {
-        return cost + component.getTotalCost();
+	return this.cost + this.component.getTotalCost();
     }
 }

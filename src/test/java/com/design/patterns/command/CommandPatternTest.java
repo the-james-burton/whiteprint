@@ -7,9 +7,9 @@ public class CommandPatternTest {
 
     @Test
     public void test() {
-        macro.add(new Hello());
-        macro.add(new World());
-        macro.add(new IAm());
-        macro.run();
+	this.macro.add(new Hello());
+	this.macro.add(new World());
+	this.macro.add(new IAm());
+	this.macro.run();
     }
 }

@@ -4,33 +4,37 @@ import java.util.Observable;
 import java.util.Observer;
 
 class Bee {
-    private String        name;
-    private OpenObserver  openObsrv  = new OpenObserver();
-    private CloseObserver closeObsrv = new CloseObserver();
-
-    public Bee(String nm) {
-        name = nm;
+    // Another inner class for closings:
+    private class CloseObserver implements Observer {
+	@Override
+	public void update(final Observable ob, final Object a) {
+	    System.out.println("Bee " + Bee.this.name + "'s bed time!");
+	}
     }
 
     // An inner class for observing openings:
     private class OpenObserver implements Observer {
-        public void update(Observable ob, Object a) {
-            System.out.println("Bee " + name + "'s breakfast time!");
-        }
+	@Override
+	public void update(final Observable ob, final Object a) {
+	    System.out.println("Bee " + Bee.this.name + "'s breakfast time!");
+	}
     }
 
-    // Another inner class for closings:
-    private class CloseObserver implements Observer {
-        public void update(Observable ob, Object a) {
-            System.out.println("Bee " + name + "'s bed time!");
-        }
-    }
+    private final String name;
 
-    public Observer openObserver() {
-        return openObsrv;
+    private final OpenObserver openObsrv = new OpenObserver();
+
+    private final CloseObserver closeObsrv = new CloseObserver();
+
+    public Bee(final String nm) {
+	this.name = nm;
     }
 
     public Observer closeObserver() {
-        return closeObsrv;
+	return this.closeObsrv;
+    }
+
+    public Observer openObserver() {
+	return this.openObsrv;
     }
 }

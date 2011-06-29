@@ -7,9 +7,10 @@ public class Information {
     /**
      * Method to indicate sucessful compilation and execution.
      * 
-     * @return Returns the current value of the most precise available system timer, in nanoseconds.
+     * @return Returns the current value of the most precise available system
+     *         timer, in nanoseconds.
      */
     public final Long ping() {
-        return System.nanoTime();
+	return System.nanoTime();
     }
 }

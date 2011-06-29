@@ -3,15 +3,15 @@ package com.design.patterns.strategy;
 class MinimaSolver {
     private FindMinima strategy;
 
-    public MinimaSolver(FindMinima strat) {
-        strategy = strat;
+    public MinimaSolver(final FindMinima strat) {
+	this.strategy = strat;
     }
 
-    double[] minima(double[] line) {
-        return strategy.algorithm(line);
+    void changeAlgorithm(final FindMinima newAlgorithm) {
+	this.strategy = newAlgorithm;
     }
 
-    void changeAlgorithm(FindMinima newAlgorithm) {
-        strategy = newAlgorithm;
+    double[] minima(final double[] line) {
+	return this.strategy.algorithm(line);
     }
 }

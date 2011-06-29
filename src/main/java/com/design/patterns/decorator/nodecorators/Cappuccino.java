@@ -1,14 +1,14 @@
 package com.design.patterns.decorator.nodecorators;
 
 class Cappuccino {
-    private float  cost        = 1;
-    private String description = "Cappucino";
+    private final float cost = 1;
+    private final String description = "Cappucino";
 
     public float getCost() {
-        return cost;
+	return this.cost;
     }
 
     public String getDescription() {
-        return description;
+	return this.description;
     }
 }

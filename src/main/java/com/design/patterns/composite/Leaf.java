@@ -1,17 +1,19 @@
 package com.design.patterns.composite;
 
 class Leaf implements Component {
-    private String name;
+    private final String name;
 
-    public Leaf(String name) {
-        this.name = name;
+    public Leaf(final String name) {
+	this.name = name;
     }
 
-    public String toString() {
-        return name;
-    }
-
+    @Override
     public void operation() {
-        System.out.println(this);
+	System.out.println(this);
+    }
+
+    @Override
+    public String toString() {
+	return this.name;
     }
 }

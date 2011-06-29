@@ -12,47 +12,59 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 class OCBox extends JPanel implements Observer {
-    Observable           notifier;
-    int                  x, y;                                               // Locations in grid
-    Color                cColor = newColor();
-    static final Color[] colors = { Color.BLACK, Color.BLUE, Color.CYAN, Color.DARK_GRAY, Color.GRAY, Color.GREEN, Color.LIGHT_GRAY, Color.MAGENTA,
-            Color.ORANGE, Color.PINK, Color.RED, Color.WHITE, Color.YELLOW };
-    static Random        rand   = new Random();
+    class ML extends MouseAdapter {
+	@Override
+	public void mousePressed(final MouseEvent e) {
+	    OCBox.this.notifier.notifyObservers(OCBox.this);
+	}
+    }
+
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -4580612112242627887L;
 
     static final Color newColor() {
-        return colors[rand.nextInt(colors.length)];
+	return colors[rand.nextInt(colors.length)];
     }
 
-    OCBox(int x, int y, Observable notifier) {
-        this.x = x;
-        this.y = y;
-        notifier.addObserver(this);
-        this.notifier = notifier;
-        addMouseListener(new ML());
+    Observable notifier;
+    int x, y; // Locations in grid
+    Color cColor = newColor();
+
+    static final Color[] colors = { Color.BLACK, Color.BLUE, Color.CYAN,
+	    Color.DARK_GRAY, Color.GRAY, Color.GREEN, Color.LIGHT_GRAY,
+	    Color.MAGENTA, Color.ORANGE, Color.PINK, Color.RED, Color.WHITE,
+	    Color.YELLOW };
+
+    static Random rand = new Random();
+
+    OCBox(final int x, final int y, final Observable notifier) {
+	this.x = x;
+	this.y = y;
+	notifier.addObserver(this);
+	this.notifier = notifier;
+	addMouseListener(new ML());
     }
 
-    public void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(cColor);
-        Dimension s = getSize();
-        g.fillRect(0, 0, s.width, s.height);
+    private final boolean nextTo(final OCBox b) {
+	return (Math.abs(this.x - b.x) <= 1) && (Math.abs(this.y - b.y) <= 1);
     }
 
-    class ML extends MouseAdapter {
-        public void mousePressed(MouseEvent e) {
-            notifier.notifyObservers(OCBox.this);
-        }
+    @Override
+    public void paintComponent(final Graphics g) {
+	super.paintComponent(g);
+	g.setColor(this.cColor);
+	final Dimension s = getSize();
+	g.fillRect(0, 0, s.width, s.height);
     }
 
-    public void update(Observable o, Object arg) {
-        OCBox clicked = (OCBox) arg;
-        if (nextTo(clicked)) {
-            cColor = clicked.cColor;
-            repaint();
-        }
-    }
-
-    private final boolean nextTo(OCBox b) {
-        return Math.abs(x - b.x) <= 1 && Math.abs(y - b.y) <= 1;
+    @Override
+    public void update(final Observable o, final Object arg) {
+	final OCBox clicked = (OCBox) arg;
+	if (nextTo(clicked)) {
+	    this.cColor = clicked.cColor;
+	    repaint();
+	}
     }
 }

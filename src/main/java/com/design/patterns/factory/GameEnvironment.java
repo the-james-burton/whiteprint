@@ -1,17 +1,17 @@
 package com.design.patterns.factory;
 
 class GameEnvironment {
-    private GameElementFactory gef;
-    private Player             p;
-    private Obstacle           ob;
+    private final GameElementFactory gef;
+    private final Player p;
+    private final Obstacle ob;
 
-    public GameEnvironment(GameElementFactory factory) {
-        gef = factory;
-        p = factory.makePlayer();
-        ob = factory.makeObstacle();
+    public GameEnvironment(final GameElementFactory factory) {
+	this.gef = factory;
+	this.p = factory.makePlayer();
+	this.ob = factory.makeObstacle();
     }
 
     public void play() {
-        p.interactWith(ob);
+	this.p.interactWith(this.ob);
     }
 }

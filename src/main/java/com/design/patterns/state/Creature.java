@@ -4,10 +4,10 @@ class Creature {
     private State state = new Frog();
 
     public void greet() {
-        System.out.println(state.response());
+	System.out.println(this.state.response());
     }
 
     public void kiss() {
-        state = new Prince();
+	this.state = new Prince();
     }
 }

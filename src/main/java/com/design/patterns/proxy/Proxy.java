@@ -1,22 +1,25 @@
 package com.design.patterns.proxy;
 
 class Proxy implements ProxyBase {
-    private ProxyBase implementation;
+    private final ProxyBase implementation;
 
     public Proxy() {
-        implementation = new Implementation();
+	this.implementation = new Implementation();
     }
 
     // Pass method calls to the implementation:
+    @Override
     public void f() {
-        implementation.f();
+	this.implementation.f();
     }
 
+    @Override
     public void g() {
-        implementation.g();
+	this.implementation.g();
     }
 
+    @Override
     public void h() {
-        implementation.h();
+	this.implementation.h();
     }
 }

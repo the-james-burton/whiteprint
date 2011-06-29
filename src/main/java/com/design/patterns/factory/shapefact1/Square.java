@@ -4,11 +4,13 @@ class Square extends Shape {
     Square() {
     } // Package-access constructor
 
+    @Override
     public void draw() {
-        System.out.println("Square.draw");
+	System.out.println("Square.draw");
     }
 
+    @Override
     public void erase() {
-        System.out.println("Square.erase");
+	System.out.println("Square.erase");
     }
 }

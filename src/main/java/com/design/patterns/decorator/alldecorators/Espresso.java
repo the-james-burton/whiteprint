@@ -1,18 +1,20 @@
 package com.design.patterns.decorator.alldecorators;
 
 class Espresso extends Decorator {
-    private float  cost        = 0.75f;
-    private String description = " espresso";
+    private final float cost = 0.75f;
+    private final String description = " espresso";
 
-    public Espresso(DrinkComponent component) {
-        super(component);
+    public Espresso(final DrinkComponent component) {
+	super(component);
     }
 
-    public float getTotalCost() {
-        return component.getTotalCost() + cost;
-    }
-
+    @Override
     public String getDescription() {
-        return component.getDescription() + description;
+	return this.component.getDescription() + this.description;
+    }
+
+    @Override
+    public float getTotalCost() {
+	return this.component.getTotalCost() + this.cost;
     }
 }

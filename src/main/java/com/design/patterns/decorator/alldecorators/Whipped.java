@@ -1,18 +1,20 @@
 package com.design.patterns.decorator.alldecorators;
 
 class Whipped extends Decorator {
-    private float  cost        = 0.25f;
-    private String description = " whipped cream";
+    private final float cost = 0.25f;
+    private final String description = " whipped cream";
 
-    public Whipped(DrinkComponent component) {
-        super(component);
+    public Whipped(final DrinkComponent component) {
+	super(component);
     }
 
-    public float getTotalCost() {
-        return component.getTotalCost() + cost;
-    }
-
+    @Override
     public String getDescription() {
-        return component.getDescription() + description;
+	return this.component.getDescription() + this.description;
+    }
+
+    @Override
+    public float getTotalCost() {
+	return this.component.getTotalCost() + this.cost;
     }
 }

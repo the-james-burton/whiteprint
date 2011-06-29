@@ -1,14 +1,16 @@
 package com.design.patterns.decorator.compromise;
 
 class Espresso implements DrinkComponent {
-    private String description = "Espresso";
-    private float  cost        = 0.75f;
+    private final String description = "Espresso";
+    private final float cost = 0.75f;
 
-    public float getTotalCost() {
-        return cost;
+    @Override
+    public String getDescription() {
+	return this.description;
     }
 
-    public String getDescription() {
-        return description;
+    @Override
+    public float getTotalCost() {
+	return this.cost;
     }
 }

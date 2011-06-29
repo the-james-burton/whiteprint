@@ -1,11 +1,13 @@
 package com.design.patterns.factory;
 
 class KittiesAndPuzzles implements GameElementFactory {
-    public Player makePlayer() {
-        return new Kitty();
+    @Override
+    public Obstacle makeObstacle() {
+	return new Puzzle();
     }
 
-    public Obstacle makeObstacle() {
-        return new Puzzle();
+    @Override
+    public Player makePlayer() {
+	return new Kitty();
     }
 }

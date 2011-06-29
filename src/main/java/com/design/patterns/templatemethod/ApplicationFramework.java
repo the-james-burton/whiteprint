@@ -2,7 +2,7 @@ package com.design.patterns.templatemethod;
 
 abstract class ApplicationFramework {
     public ApplicationFramework() {
-        templateMethod(); // Dangerous!
+	templateMethod(); // Dangerous!
     }
 
     abstract void customize1();
@@ -10,9 +10,9 @@ abstract class ApplicationFramework {
     abstract void customize2();
 
     final void templateMethod() {
-        for (int i = 0; i < 5; i++) {
-            customize1();
-            customize2();
-        }
+	for (int i = 0; i < 5; i++) {
+	    customize1();
+	    customize2();
+	}
     }
 }

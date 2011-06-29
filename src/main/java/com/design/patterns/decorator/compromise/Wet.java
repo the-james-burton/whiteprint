@@ -1,11 +1,12 @@
 package com.design.patterns.decorator.compromise;
 
 class Wet extends Decorator {
-    public Wet(DrinkComponent component) {
-        super(component);
+    public Wet(final DrinkComponent component) {
+	super(component);
     }
 
+    @Override
     public String getDescription() {
-        return component.getDescription() + " extra steamed milk";
+	return this.component.getDescription() + " extra steamed milk";
     }
 }

@@ -2,27 +2,28 @@ package com.design.patterns.flyweight;
 
 class DataPoint {
     private static int count = 0;
-    private int        id    = count++;
-    private int        i;
-    private float      f;
-
-    public int getI() {
-        return i;
-    }
-
-    public void setI(int i) {
-        this.i = i;
-    }
+    private final int id = count++;
+    private int i;
+    private float f;
 
     public float getF() {
-        return f;
+	return this.f;
     }
 
-    public void setF(float f) {
-        this.f = f;
+    public int getI() {
+	return this.i;
     }
 
+    public void setF(final float f) {
+	this.f = f;
+    }
+
+    public void setI(final int i) {
+	this.i = i;
+    }
+
+    @Override
     public String toString() {
-        return "id: " + id + ", i = " + i + ", f = " + f;
+	return "id: " + this.id + ", i = " + this.i + ", f = " + this.f;
     }
 }

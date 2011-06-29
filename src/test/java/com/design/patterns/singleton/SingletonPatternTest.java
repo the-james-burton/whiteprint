@@ -11,20 +11,20 @@ import org.junit.Test;
 public class SingletonPatternTest {
     @Test
     public void test() {
-        Singleton s = Singleton.getReference();
-        String result = "" + s.getValue();
-        System.out.println(result);
-        assertEquals(result, "47");
-        Singleton s2 = Singleton.getReference();
-        s2.setValue(9);
-        result = "" + s.getValue();
-        System.out.println(result);
-        assertEquals(result, "9");
-        try {
-            // Can't do this: compile-time error.
-            // Singleton s3 = (Singleton)s2.clone();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+	final Singleton s = Singleton.getReference();
+	String result = "" + s.getValue();
+	System.out.println(result);
+	assertEquals(result, "47");
+	final Singleton s2 = Singleton.getReference();
+	s2.setValue(9);
+	result = "" + s.getValue();
+	System.out.println(result);
+	assertEquals(result, "9");
+	try {
+	    // Can't do this: compile-time error.
+	    // Singleton s3 = (Singleton)s2.clone();
+	} catch (final Exception e) {
+	    throw new RuntimeException(e);
+	}
     }
 }

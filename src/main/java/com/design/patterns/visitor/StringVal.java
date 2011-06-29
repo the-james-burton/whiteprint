@@ -3,19 +3,23 @@ package com.design.patterns.visitor;
 class StringVal implements Visitor {
     String s;
 
+    @Override
     public String toString() {
-        return s;
+	return this.s;
     }
 
-    public void visit(Gladiolus g) {
-        s = "Gladiolus";
+    @Override
+    public void visit(final Chrysanthemum c) {
+	this.s = "Chrysanthemum";
     }
 
-    public void visit(Runuculus r) {
-        s = "Runuculus";
+    @Override
+    public void visit(final Gladiolus g) {
+	this.s = "Gladiolus";
     }
 
-    public void visit(Chrysanthemum c) {
-        s = "Chrysanthemum";
+    @Override
+    public void visit(final Runuculus r) {
+	this.s = "Runuculus";
     }
 }

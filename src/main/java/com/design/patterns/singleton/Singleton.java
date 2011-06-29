@@ -2,21 +2,22 @@ package com.design.patterns.singleton;
 
 final class Singleton {
     private static Singleton s = new Singleton(47);
-    private int              i;
-
-    private Singleton(int x) {
-        i = x;
-    }
 
     public static Singleton getReference() {
-        return s;
+	return s;
+    }
+
+    private int i;
+
+    private Singleton(final int x) {
+	this.i = x;
     }
 
     public int getValue() {
-        return i;
+	return this.i;
     }
 
-    public void setValue(int x) {
-        i = x;
+    public void setValue(final int x) {
+	this.i = x;
     }
 }

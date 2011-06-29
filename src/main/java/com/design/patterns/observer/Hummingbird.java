@@ -4,31 +4,37 @@ import java.util.Observable;
 import java.util.Observer;
 
 class Hummingbird {
-    private String        name;
-    private OpenObserver  openObsrv  = new OpenObserver();
-    private CloseObserver closeObsrv = new CloseObserver();
-
-    public Hummingbird(String nm) {
-        name = nm;
+    private class CloseObserver implements Observer {
+	@Override
+	public void update(final Observable ob, final Object a) {
+	    System.out.println("Hummingbird " + Hummingbird.this.name
+		    + "'s bed time!");
+	}
     }
 
     private class OpenObserver implements Observer {
-        public void update(Observable ob, Object a) {
-            System.out.println("Hummingbird " + name + "'s breakfast time!");
-        }
+	@Override
+	public void update(final Observable ob, final Object a) {
+	    System.out.println("Hummingbird " + Hummingbird.this.name
+		    + "'s breakfast time!");
+	}
     }
 
-    private class CloseObserver implements Observer {
-        public void update(Observable ob, Object a) {
-            System.out.println("Hummingbird " + name + "'s bed time!");
-        }
-    }
+    private final String name;
 
-    public Observer openObserver() {
-        return openObsrv;
+    private final OpenObserver openObsrv = new OpenObserver();
+
+    private final CloseObserver closeObsrv = new CloseObserver();
+
+    public Hummingbird(final String nm) {
+	this.name = nm;
     }
 
     public Observer closeObserver() {
-        return closeObsrv;
+	return this.closeObsrv;
+    }
+
+    public Observer openObserver() {
+	return this.openObsrv;
     }
 }

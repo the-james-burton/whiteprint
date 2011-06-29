@@ -7,9 +7,9 @@ public class ProxyTest {
 
     @Test
     public void test() {
-        // This just makes sure it will complete without throwing an exception.
-        p.f();
-        p.g();
-        p.h();
+	// This just makes sure it will complete without throwing an exception.
+	this.p.f();
+	this.p.g();
+	this.p.h();
     }
 }

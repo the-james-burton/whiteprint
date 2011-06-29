@@ -5,7 +5,7 @@ interface Item {
 
     Outcome eval(Paper p);
 
-    Outcome eval(Scissors s);
-
     Outcome eval(Rock r);
+
+    Outcome eval(Scissors s);
 }

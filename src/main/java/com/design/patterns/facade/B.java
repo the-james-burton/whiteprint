@@ -1,6 +1,6 @@
 package com.design.patterns.facade;
 
 class B {
-    public B(long x) {
+    public B(final long x) {
     }
 }

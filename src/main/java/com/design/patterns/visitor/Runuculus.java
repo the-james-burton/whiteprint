@@ -1,7 +1,8 @@
 package com.design.patterns.visitor;
 
 class Runuculus implements Flower {
-    public void accept(Visitor v) {
-        v.visit(this);
+    @Override
+    public void accept(final Visitor v) {
+	v.visit(this);
     }
 }
