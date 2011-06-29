@@ -7,7 +7,7 @@ import java.util.List;
 import org.junit.Test;
 
 public class BeeAndFlowersTest {
-    List flowers = new ArrayList();
+    List<Flower> flowers = new ArrayList<Flower>();
 
     public BeeAndFlowersTest() {
 	for (int i = 0; i < 10; i++) {
@@ -20,7 +20,7 @@ public class BeeAndFlowersTest {
 	// It's almost as if I had a function to produce a Flower string
 	// representation:
 	final StringVal sval = new StringVal();
-	Iterator it = this.flowers.iterator();
+	Iterator<Flower> it = this.flowers.iterator();
 	while (it.hasNext()) {
 	    ((Flower) it.next()).accept(sval);
 	    System.out.println(sval);

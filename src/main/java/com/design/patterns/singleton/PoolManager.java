@@ -2,25 +2,9 @@ package com.design.patterns.singleton;
 
 import java.util.ArrayList;
 
+
 public class PoolManager {
-    static class EmptyPoolException extends Exception {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1700207749242732367L;
-    }
-
-    private static class PoolItem {
-	boolean inUse = false;
-	Object item;
-
-	PoolItem(final Object item) {
-	    this.item = item;
-	}
-    }
-
-    private final ArrayList items = new ArrayList();
+    private final ArrayList<PoolItem> items = new ArrayList<PoolItem>();
 
     public void add(final Object item) {
 	this.items.add(new PoolItem(item));

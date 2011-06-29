@@ -10,12 +10,12 @@ import org.junit.Test;
 public class ShapeFactory2Test {
     String shlist[] = { "Circle", "Square", "Square", "Circle", "Circle",
 	    "Square" };
-    List shapes = new ArrayList();
+    List<Shape> shapes = new ArrayList<Shape>();
 
     @Test
     public void test() {
 	// This just makes sure it will complete without throwing an exception.
-	Iterator it = Arrays.asList(this.shlist).iterator();
+	Iterator<?> it = Arrays.asList(this.shlist).iterator();
 	while (it.hasNext()) {
 	    this.shapes.add(ShapeFactory.createShape((String) it.next()));
 	}

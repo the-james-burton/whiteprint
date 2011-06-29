@@ -1,6 +1,5 @@
 package com.design.patterns.builder;
 
-import java.util.Iterator;
 import java.util.List;
 
 class MediaDirector { // a.k.a. "Context"
@@ -10,10 +9,10 @@ class MediaDirector { // a.k.a. "Context"
 	this.mb = mb; // Strategy-ish
     }
 
-    public Media produceMedia(final List input) {
+    public Media produceMedia(final List<?> input) {
 	this.mb.buildBase();
-	for (final Iterator it = input.iterator(); it.hasNext();) {
-	    this.mb.addMediaItem((MediaItem) it.next());
+	for (Object element : input) {
+	    this.mb.addMediaItem((MediaItem) element);
 	}
 	return this.mb.getFinishedMedia();
     }

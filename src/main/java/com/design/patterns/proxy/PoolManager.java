@@ -2,43 +2,9 @@ package com.design.patterns.proxy;
 
 import java.util.ArrayList;
 
+
 public class PoolManager {
-    // Different (better?) approach to running out of items:
-    public static class EmptyPoolItem {
-    }
-
-    private static class PoolItem {
-	boolean inUse = false;
-	Object item;
-
-	PoolItem(final Object item) {
-	    this.item = item;
-	}
-    }
-
-    public class ReleasableReference { // Used to build the proxy
-	private final PoolItem reference;
-	private boolean released = false;
-
-	public ReleasableReference(final PoolItem reference) {
-	    this.reference = reference;
-	}
-
-	public Object getReference() {
-	    if (this.released) {
-		throw new RuntimeException(
-			"Tried to use reference after it was released");
-	    }
-	    return this.reference.item;
-	}
-
-	public void release() {
-	    this.released = true;
-	    this.reference.inUse = false;
-	}
-    }
-
-    private final ArrayList items = new ArrayList();
+    private final ArrayList<PoolItem> items = new ArrayList<PoolItem>();
 
     public void add(final Object item) {
 	this.items.add(new PoolItem(item));

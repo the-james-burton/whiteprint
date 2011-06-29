@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 abstract class ShapeFactory {
-    private static Map factories = new HashMap();
+    private static Map<String, ShapeFactory> factories = new HashMap<String, ShapeFactory>();
 
     public static void addFactory(final String id, final ShapeFactory f) {
 	factories.put(id, f);

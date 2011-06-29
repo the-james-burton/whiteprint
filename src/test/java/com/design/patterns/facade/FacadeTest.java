@@ -7,8 +7,8 @@ public class FacadeTest {
     public void test() {
 	// The client programmer gets the objects by calling the static methods:
 	final Facade facade = new Facade();
-	final A a = facade.makeA(1);
-	final B b = facade.makeB(1);
-	final C c = facade.makeC(1.0);
+	facade.makeA(1);
+	facade.makeB(1);
+	facade.makeC(1.0);
     }
 }

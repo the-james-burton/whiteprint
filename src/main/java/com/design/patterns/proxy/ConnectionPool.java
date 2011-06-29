@@ -3,9 +3,9 @@ package com.design.patterns.proxy;
 class ConnectionPool { // A singleton
     // The proxy as a nested class:
     private static class ConnectionProxy implements Connection {
-	private final PoolManager.ReleasableReference implementation;
+	private final ReleasableReference implementation;
 
-	public ConnectionProxy(final PoolManager.ReleasableReference rr) {
+	public ConnectionProxy(final ReleasableReference rr) {
 	    this.implementation = rr;
 	}
 
@@ -34,7 +34,7 @@ class ConnectionPool { // A singleton
     }
 
     public static Connection getConnection() {
-	final PoolManager.ReleasableReference rr = pool.get();
+	final ReleasableReference rr = pool.get();
 	if (rr == null) {
 	    return null;
 	}

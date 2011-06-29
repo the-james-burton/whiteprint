@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 public class BuildMediaTest {
-    private final List input = Arrays.asList(new MediaItem[] {
+    private final List<MediaItem> input = Arrays.asList(new MediaItem[] {
 	    new MediaItem("item1"), new MediaItem("item2"),
 	    new MediaItem("item3"), new MediaItem("item4"), });
 

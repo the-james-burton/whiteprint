@@ -10,11 +10,11 @@ import org.junit.Test;
 public class ShapeFactory1Test {
     String shlist[] = { "Circle", "Square", "Square", "Circle", "Circle",
 	    "Square" };
-    List shapes = new ArrayList();
+    List<Shape> shapes = new ArrayList<Shape>();
 
     @Test
     public void test() {
-	Iterator it = Arrays.asList(this.shlist).iterator();
+	Iterator<?> it = Arrays.asList(this.shlist).iterator();
 	while (it.hasNext()) {
 	    this.shapes.add(Shape.factory((String) it.next()));
 	}

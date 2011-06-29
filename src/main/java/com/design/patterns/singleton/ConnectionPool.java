@@ -10,7 +10,7 @@ class ConnectionPool { // A singleton
     }
 
     public static Connection getConnection()
-	    throws PoolManager.EmptyPoolException {
+	    throws EmptyPoolException {
 	return (Connection) pool.get();
     }
 

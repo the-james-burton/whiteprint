@@ -5,14 +5,14 @@ import java.util.Iterator;
 import java.util.List;
 
 class Macro {
-    private final List commands = new ArrayList();
+    private final List<Command> commands = new ArrayList<Command>();
 
     public void add(final Command c) {
 	this.commands.add(c);
     }
 
     public void run() {
-	final Iterator it = this.commands.iterator();
+	final Iterator<Command> it = this.commands.iterator();
 	while (it.hasNext()) {
 	    ((Command) it.next()).execute();
 	}

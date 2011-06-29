@@ -12,7 +12,7 @@ public class ConnectionPoolTest {
 	Connection c = null;
 	try {
 	    c = ConnectionPool.getConnection();
-	} catch (final PoolManager.EmptyPoolException e) {
+	} catch (final EmptyPoolException e) {
 	    throw new RuntimeException(e);
 	}
 	c.set(new Object());
@@ -25,7 +25,7 @@ public class ConnectionPoolTest {
 	Connection c = null;
 	try {
 	    c = ConnectionPool.getConnection();
-	} catch (final PoolManager.EmptyPoolException e) {
+	} catch (final EmptyPoolException e) {
 	    throw new RuntimeException(e);
 	}
 	c.set(new Object());
