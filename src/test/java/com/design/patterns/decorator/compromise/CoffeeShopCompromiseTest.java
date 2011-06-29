@@ -2,7 +2,7 @@ package com.design.patterns.decorator.compromise;
 
 import org.junit.Test;
 
-public class CoffeeShop3 {
+public class CoffeeShopCompromiseTest {
     @Test
     public void testCappuccino() {
         // This just makes sure it will complete without throwing an exception. Create a plain cappucino

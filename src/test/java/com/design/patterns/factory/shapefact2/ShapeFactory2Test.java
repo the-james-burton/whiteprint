@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class ShapeFactory2 {
+public class ShapeFactory2Test {
     String shlist[] = { "Circle", "Square", "Square", "Circle", "Circle", "Square" };
     List   shapes   = new ArrayList();
 

@@ -2,7 +2,7 @@ package com.design.patterns.factory;
 
 import org.junit.Test;
 
-public class Games {
+public class GamesTest {
     GameElementFactory kp = new KittiesAndPuzzles(), kd = new KillAndDismember();
     GameEnvironment    g1 = new GameEnvironment(kp), g2 = new GameEnvironment(kd);
 

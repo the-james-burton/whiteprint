@@ -2,7 +2,7 @@ package com.design.patterns.proxy;
 
 import org.junit.Test;
 
-public class ProxyDemo {
+public class ProxyTest {
     Proxy p = new Proxy();
 
     @Test

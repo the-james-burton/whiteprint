@@ -2,7 +2,7 @@ package com.design.patterns.command;
 
 import org.junit.Test;
 
-public class CommandPattern {
+public class CommandPatternTest {
     Macro macro = new Macro();
 
     @Test

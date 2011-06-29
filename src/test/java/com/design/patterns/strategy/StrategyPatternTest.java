@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 import org.junit.Test;
 
-public class StrategyPattern {
+public class StrategyPatternTest {
     MinimaSolver solver = new MinimaSolver(new LeastSquares());
     double[]     line   = { 1.0, 2.0, 1.0, 2.0, -1.0, 3.0, 4.0, 5.0, 4.0 };
 

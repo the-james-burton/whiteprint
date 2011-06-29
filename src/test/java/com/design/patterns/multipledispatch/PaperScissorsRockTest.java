@@ -2,7 +2,7 @@ package com.design.patterns.multipledispatch;
 
 import org.junit.Test;
 
-public class PaperScissorsRock {
+public class PaperScissorsRockTest {
     int SIZE = 20;
 
     @Test

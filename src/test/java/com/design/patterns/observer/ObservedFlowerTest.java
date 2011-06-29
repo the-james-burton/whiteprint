@@ -2,7 +2,7 @@ package com.design.patterns.observer;
 
 import org.junit.Test;
 
-public class ObservedFlower {
+public class ObservedFlowerTest {
     Flower f = new Flower();
     Bee    ba = new Bee("A"), bb = new Bee("B");
     Hummingbird ha = new Hummingbird("A"), hb = new Hummingbird("B");

@@ -2,7 +2,7 @@ package com.design.patterns.flyweight;
 
 import org.junit.Test;
 
-public class FlyWeightObjects {
+public class FlyWeightObjectsTest {
     @Test
     public void test() {
         for (int i = 0; i < ExternalizedData.size; i++) {

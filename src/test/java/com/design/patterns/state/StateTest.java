@@ -2,7 +2,7 @@ package com.design.patterns.state;
 
 import org.junit.Test;
 
-public class StateDemo {
+public class StateTest {
     static void run(ServiceProvider sp) {
         sp.service1();
         sp.service2();

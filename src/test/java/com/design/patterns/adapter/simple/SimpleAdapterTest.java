@@ -2,7 +2,7 @@ package com.design.patterns.adapter.simple;
 
 import org.junit.Test;
 
-public class SimpleAdapter {
+public class SimpleAdapterTest {
     Adaptee a = new Adaptee();
     Target  t = new Adapter(a);
 

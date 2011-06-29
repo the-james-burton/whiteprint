@@ -2,7 +2,7 @@ package com.design.patterns.composite;
 
 import org.junit.Test;
 
-public class CompositeStructure {
+public class CompositeStructureTest {
     @Test
     public void test() {
         Node root = new Node("root");

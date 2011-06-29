@@ -6,10 +6,10 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class BeeAndFlowers {
+public class BeeAndFlowersTest {
     List flowers = new ArrayList();
 
-    public BeeAndFlowers() {
+    public BeeAndFlowersTest() {
         for (int i = 0; i < 10; i++) {
             flowers.add(FlowerGenerator.newFlower());
         }

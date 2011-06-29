@@ -2,7 +2,7 @@ package com.design.patterns.singleton;
 
 import org.junit.Test;
 
-public class ConnectionPoolDemo {
+public class ConnectionPoolTest {
     static {
         ConnectionPool.addConnections(5);
     }

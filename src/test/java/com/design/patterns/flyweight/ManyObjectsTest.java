@@ -2,7 +2,7 @@ package com.design.patterns.flyweight;
 
 import org.junit.Test;
 
-public class ManyObjects {
+public class ManyObjectsTest {
     final int size = 1000000;
 
     @Test

@@ -2,7 +2,7 @@ package com.design.patterns.templatemethod;
 
 import org.junit.Test;
 
-public class TemplateMethod {
+public class TemplateMethodTest {
     MyApp app = new MyApp();
 
     @Test

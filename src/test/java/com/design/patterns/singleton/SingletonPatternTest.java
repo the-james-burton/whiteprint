@@ -8,7 +8,7 @@ import org.junit.Test;
 // base class and cloneability isn't added,
 // making it final prevents cloneability from
 // being added through inheritance:
-public class SingletonPattern {
+public class SingletonPatternTest {
     @Test
     public void test() {
         Singleton s = Singleton.getReference();

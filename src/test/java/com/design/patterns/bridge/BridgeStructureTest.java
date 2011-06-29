@@ -2,7 +2,7 @@ package com.design.patterns.bridge;
 
 import org.junit.Test;
 
-public class BridgeStructure {
+public class BridgeStructureTest {
     @Test
     public void test1() {
         // Here, the implementation is determined by the client at creation time:

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class ConnectionPoolProxyDemo {
+public class ConnectionPoolProxyTest {
     static {
         ConnectionPool.addConnections(5);
     }

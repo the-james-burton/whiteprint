@@ -2,7 +2,7 @@ package com.design.patterns.decorator.nodecorators;
 
 import org.junit.Test;
 
-public class CoffeeShop {
+public class CoffeeShopNoDecoratorsTest {
     @Test
     public void testCappuccino() {
         // This just makes sure it will complete without throwing an exception. Create a plain cappuccino

@@ -2,7 +2,7 @@ package com.design.patterns.state;
 
 import org.junit.Test;
 
-public class KissingPrincess {
+public class KissingPrincessTest {
     Beast beast = new Beast();
 
     @Test
