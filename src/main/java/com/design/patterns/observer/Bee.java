@@ -2,13 +2,17 @@ package com.design.patterns.observer;
 
 import java.util.Observable;
 import java.util.Observer;
+import java.util.logging.Logger;
 
 class Bee {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     // Another inner class for closings:
     private class CloseObserver implements Observer {
 	@Override
 	public void update(final Observable ob, final Object a) {
-	    System.out.println("Bee " + Bee.this.name + "'s bed time!");
+	    log.info("Bee " + Bee.this.name + "'s bed time!");
 	}
     }
 
@@ -16,7 +20,7 @@ class Bee {
     private class OpenObserver implements Observer {
 	@Override
 	public void update(final Observable ob, final Object a) {
-	    System.out.println("Bee " + Bee.this.name + "'s breakfast time!");
+	    log.info("Bee " + Bee.this.name + "'s breakfast time!");
 	}
     }
 

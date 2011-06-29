@@ -2,9 +2,14 @@ package com.design.patterns.proxy;
 
 import static org.junit.Assert.assertEquals;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 public class ConnectionPoolProxyTest {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     static {
 	ConnectionPool.addConnections(5);
     }
@@ -28,7 +33,7 @@ public class ConnectionPoolProxyTest {
 	    c.get();
 	} catch (final Exception e) {
 	    s = e.getMessage();
-	    System.out.println(s);
+	    log.info(s);
 	}
 	assertEquals(s, "Tried to use reference after it was released");
     }

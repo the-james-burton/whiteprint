@@ -1,18 +1,23 @@
 package com.design.patterns.visitor;
 
+import java.util.logging.Logger;
+
 class Bee implements Visitor {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     @Override
     public void visit(final Chrysanthemum c) {
-	System.out.println("Bee and Chrysanthemum");
+	log.info("Bee and Chrysanthemum");
     }
 
     @Override
     public void visit(final Gladiolus g) {
-	System.out.println("Bee and Gladiolus");
+	log.info("Bee and Gladiolus");
     }
 
     @Override
     public void visit(final Runuculus r) {
-	System.out.println("Bee and Runuculus");
+	log.info("Bee and Runuculus");
     }
 }

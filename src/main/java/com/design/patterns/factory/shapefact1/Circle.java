@@ -6,11 +6,11 @@ class Circle extends Shape {
 
     @Override
     public void draw() {
-	System.out.println("Circle.draw");
+	log.info("Circle.draw");
     }
 
     @Override
     public void erase() {
-	System.out.println("Circle.erase");
+	log.info("Circle.erase");
     }
 }

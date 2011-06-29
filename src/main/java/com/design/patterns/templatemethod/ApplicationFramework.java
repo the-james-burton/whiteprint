@@ -1,6 +1,11 @@
 package com.design.patterns.templatemethod;
 
+import java.util.logging.Logger;
+
 abstract class ApplicationFramework {
+    /** Standard java logging */
+    protected final Logger log = Logger.getLogger(this.getClass().getName());
+
     public ApplicationFramework() {
 	templateMethod(); // Dangerous!
     }

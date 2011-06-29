@@ -1,6 +1,11 @@
 package com.design.patterns.composite;
 
+import java.util.logging.Logger;
+
 class Leaf implements Component {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     private final String name;
 
     public Leaf(final String name) {
@@ -9,7 +14,7 @@ class Leaf implements Component {
 
     @Override
     public void operation() {
-	System.out.println(this);
+	log.info(this.toString());
     }
 
     @Override

@@ -2,10 +2,14 @@ package com.design.patterns.visitor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Test;
 
 public class BeeAndFlowersTest {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     List<Flower> flowers = new ArrayList<Flower>();
 
     public BeeAndFlowersTest() {
@@ -21,7 +25,7 @@ public class BeeAndFlowersTest {
 	final StringVal sval = new StringVal();
 	for (Flower flower : flowers) {
 	    flower.accept(sval);
-	    System.out.println(sval);
+	    log.info(sval.toString());
 	}
 	// Perform "Bee" operation on all Flowers:
 	final Bee bee = new Bee();

@@ -1,15 +1,20 @@
 package com.design.patterns.decorator.alldecorators;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 public class CoffeeShopAllDecoratorTest {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     @Test
     public void testCafeMocha() {
 	// This just makes sure it will complete without throwing an exception.
 	// Create a decaf cafe mocha with whipped cream
 	final DrinkComponent cafeMocha = new Espresso(new SteamedMilk(
 		new Chocolate(new Whipped(new Decaf(new Mug())))));
-	System.out.println(cafeMocha.getDescription().trim() + ": $"
+	log.info(cafeMocha.getDescription().trim() + ": $"
 		+ cafeMocha.getTotalCost());
     }
 
@@ -19,7 +24,7 @@ public class CoffeeShopAllDecoratorTest {
 	// Create a plain cappucino
 	final DrinkComponent cappuccino = new Espresso(
 		new FoamedMilk(new Mug()));
-	System.out.println(cappuccino.getDescription().trim() + ": $"
+	log.info(cappuccino.getDescription().trim() + ": $"
 		+ cappuccino.getTotalCost());
     }
 }

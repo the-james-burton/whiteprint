@@ -1,9 +1,14 @@
 package com.design.patterns.chainofresponsibility;
 
+import java.util.logging.Logger;
+
 class LeastSquares implements Strategy {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     @Override
     public LineData strategy(final LineData m) {
-	System.out.println("Trying LeastSquares algorithm");
+	log.info("Trying LeastSquares algorithm");
 	// [ Actual test/calculation here ]
 	final LineData r = new LineData(new double[] { 1.1, 2.2 }); // Dummy
 								    // data

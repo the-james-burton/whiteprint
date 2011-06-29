@@ -1,8 +1,13 @@
 package com.design.patterns.flyweight;
 
+import java.util.logging.Logger;
+
 import org.junit.Test;
 
 public class ManyObjectsTest {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     final int size = 1000000;
 
     @Test
@@ -15,6 +20,6 @@ public class ManyObjectsTest {
 	    dp.setI(dp.getI() + 1);
 	    dp.setF(47.0f);
 	}
-	System.out.println(array[this.size - 1]);
+	log.info(array[this.size - 1].toString());
     }
 }

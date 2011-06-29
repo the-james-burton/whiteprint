@@ -1,7 +1,12 @@
 package com.design.patterns.multipledispatch;
 
+import java.util.logging.Logger;
+
 class Compete {
-    public static void match(final Item a, final Item b) {
-	System.out.println(a + " " + a.compete(b) + " vs. " + b);
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
+    public void match(final Item a, final Item b) {
+	log.info(a + " " + a.compete(b) + " vs. " + b);
     }
 }

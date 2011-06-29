@@ -1,8 +1,12 @@
 package com.design.patterns.composite;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 class Node extends ArrayList<Component> implements Component {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     /**
      * 
      */
@@ -15,7 +19,7 @@ class Node extends ArrayList<Component> implements Component {
 
     @Override
     public void operation() {
-	System.out.println(this);
+	log.info(this.toString());
 	for (Component component : this) {
 	    component.operation();
 	}
