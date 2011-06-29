@@ -1,8 +1,13 @@
 package com.design.patterns.command;
 
+import java.util.logging.Logger;
+
 class IAm implements Command {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
+
     @Override
     public void execute() {
-	System.out.print("I'm the command pattern!");
+	log.info("I'm the command pattern!");
     }
 }

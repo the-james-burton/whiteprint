@@ -1,10 +1,14 @@
 package com.design.patterns.templatemethod;
 
+import java.util.logging.Logger;
+
 class MyApp extends ApplicationFramework {
+    /** Standard java logging */
+    private final Logger log = Logger.getLogger(this.getClass().getName());
 
     @Override
     void customize1() {
-	System.out.print("Hello ");
+	log.info("Hello ");
     }
 
     @Override
