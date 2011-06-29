@@ -1,7 +1,6 @@
 package com.design.patterns.command;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 class Macro {
@@ -12,9 +11,9 @@ class Macro {
     }
 
     public void run() {
-	final Iterator<Command> it = this.commands.iterator();
-	while (it.hasNext()) {
-	    ((Command) it.next()).execute();
+	for (Command command : this.commands) {
+	    command.execute();
 	}
+
     }
 }

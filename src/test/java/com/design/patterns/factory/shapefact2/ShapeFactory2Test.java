@@ -1,8 +1,6 @@
 package com.design.patterns.factory.shapefact2;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
@@ -14,16 +12,13 @@ public class ShapeFactory2Test {
 
     @Test
     public void test() {
-	// This just makes sure it will complete without throwing an exception.
-	Iterator<?> it = Arrays.asList(this.shlist).iterator();
-	while (it.hasNext()) {
-	    this.shapes.add(ShapeFactory.createShape((String) it.next()));
+	for (String shape : this.shlist) {
+	    this.shapes.add(ShapeFactory.createShape(shape));
 	}
-	it = this.shapes.iterator();
-	while (it.hasNext()) {
-	    final Shape s = (Shape) it.next();
-	    s.draw();
-	    s.erase();
+	for (Shape shape : shapes) {
+	    shape.draw();
+	    shape.erase();
 	}
     }
+
 }

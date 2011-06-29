@@ -1,9 +1,8 @@
 package com.design.patterns.composite;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
-class Node extends ArrayList<Object> implements Component {
+class Node extends ArrayList<Component> implements Component {
     /**
      * 
      */
@@ -17,8 +16,8 @@ class Node extends ArrayList<Object> implements Component {
     @Override
     public void operation() {
 	System.out.println(this);
-	for (final Iterator<?> it = iterator(); it.hasNext();) {
-	    ((Component) it.next()).operation();
+	for (Component component : this) {
+	    component.operation();
 	}
     }
 

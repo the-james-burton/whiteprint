@@ -1,7 +1,6 @@
 package com.design.patterns.visitor;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 import org.junit.Test;
@@ -20,16 +19,14 @@ public class BeeAndFlowersTest {
 	// It's almost as if I had a function to produce a Flower string
 	// representation:
 	final StringVal sval = new StringVal();
-	Iterator<Flower> it = this.flowers.iterator();
-	while (it.hasNext()) {
-	    ((Flower) it.next()).accept(sval);
+	for (Flower flower : flowers) {
+	    flower.accept(sval);
 	    System.out.println(sval);
 	}
 	// Perform "Bee" operation on all Flowers:
 	final Bee bee = new Bee();
-	it = this.flowers.iterator();
-	while (it.hasNext()) {
-	    ((Flower) it.next()).accept(bee);
+	for (Flower flower : flowers) {
+	    flower.accept(bee);
 	}
     }
 }
