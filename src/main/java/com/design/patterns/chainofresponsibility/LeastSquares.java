@@ -1,5 +1,7 @@
 package com.design.patterns.chainofresponsibility;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 class LeastSquares implements Strategy {
@@ -10,8 +12,10 @@ class LeastSquares implements Strategy {
     public LineData strategy(final LineData m) {
 	log.info("Trying LeastSquares algorithm");
 	// [ Actual test/calculation here ]
-	final LineData r = new LineData(new double[] { 1.1, 2.2 }); // Dummy
-								    // data
+	List<Double> data = new ArrayList<Double>();
+	data.add(1.1);
+	data.add(2.2);
+	final LineData r = new LineData(data); // Dummy data
 	r.setSuccessful(false);
 	return r;
     }

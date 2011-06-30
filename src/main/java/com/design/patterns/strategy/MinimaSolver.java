@@ -1,5 +1,7 @@
 package com.design.patterns.strategy;
 
+import java.util.List;
+
 class MinimaSolver {
     private FindMinima strategy;
 
@@ -11,7 +13,7 @@ class MinimaSolver {
 	this.strategy = newAlgorithm;
     }
 
-    double[] minima(final double[] line) {
+    List<Double> minima(final List<Double> line) {
 	return this.strategy.algorithm(line);
     }
 }

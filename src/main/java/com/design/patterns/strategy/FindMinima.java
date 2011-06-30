@@ -1,6 +1,8 @@
 package com.design.patterns.strategy;
 
+import java.util.List;
+
 interface FindMinima {
     // Line is a sequence of points:
-    double[] algorithm(double[] line);
+    List<Double> algorithm(List<Double> line);
 }

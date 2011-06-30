@@ -1,8 +1,14 @@
 package com.design.patterns.strategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class ConjugateGradient implements FindMinima {
     @Override
-    public double[] algorithm(final double[] line) {
-	return new double[] { 3.3, 4.4 }; // Dummy
+    public List<Double> algorithm(List<Double> line) {
+	List<Double> results = new ArrayList<Double>();
+	results.add(3.3);
+	results.add(4.4);
+	return results; // dummy data
     }
 }

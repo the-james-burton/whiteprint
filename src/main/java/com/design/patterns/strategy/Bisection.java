@@ -1,8 +1,14 @@
 package com.design.patterns.strategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class Bisection implements FindMinima {
     @Override
-    public double[] algorithm(final double[] line) {
-	return new double[] { 5.5, 6.6 }; // Dummy
+    public List<Double> algorithm(List<Double> line) {
+	List<Double> results = new ArrayList<Double>();
+	results.add(5.5);
+	results.add(6.6);
+	return results; // dummy data
     }
 }

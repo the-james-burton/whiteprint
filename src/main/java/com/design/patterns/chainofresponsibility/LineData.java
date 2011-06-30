@@ -1,11 +1,13 @@
 package com.design.patterns.chainofresponsibility;
 
+import java.util.List;
+
 class LineData {
-    public double[] data;
+    public List<Double> data;
 
     private boolean succeeded;
 
-    public LineData(final double[] data) {
+    public LineData(final List<Double> data) {
 	this.data = data;
     }
 

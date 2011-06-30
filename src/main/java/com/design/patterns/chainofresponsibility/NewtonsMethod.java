@@ -1,5 +1,7 @@
 package com.design.patterns.chainofresponsibility;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 class NewtonsMethod implements Strategy {
@@ -10,8 +12,10 @@ class NewtonsMethod implements Strategy {
     public LineData strategy(final LineData m) {
 	log.info("Trying NewtonsMethod algorithm");
 	// [ Actual test/calculation here ]
-	final LineData r = new LineData(new double[] { 3.3, 4.4 }); // Dummy
-								    // data
+	List<Double> data = new ArrayList<Double>();
+	data.add(3.3);
+	data.add(4.4);
+	final LineData r = new LineData(data); // Dummy data
 	r.setSuccessful(false);
 	return r;
     }

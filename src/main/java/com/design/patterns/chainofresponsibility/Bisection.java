@@ -1,5 +1,7 @@
 package com.design.patterns.chainofresponsibility;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 class Bisection implements Strategy {
@@ -10,8 +12,10 @@ class Bisection implements Strategy {
     public LineData strategy(final LineData m) {
 	log.info("Trying Bisection algorithm");
 	// [ Actual test/calculation here ]
-	final LineData r = new LineData(new double[] { 5.5, 6.6 }); // Dummy
-								    // data
+	List<Double> data = new ArrayList<Double>();
+	data.add(5.5);
+	data.add(6.6);
+	final LineData r = new LineData(data); // Dummy data
 	r.setSuccessful(true);
 	return r;
     }

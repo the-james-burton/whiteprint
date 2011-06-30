@@ -1,8 +1,14 @@
 package com.design.patterns.strategy;
 
+import java.util.ArrayList;
+import java.util.List;
+
 class LeastSquares implements FindMinima {
     @Override
-    public double[] algorithm(final double[] line) {
-	return new double[] { 1.1, 2.2 }; // Dummy
+    public List<Double> algorithm(List<Double> line) {
+	List<Double> results = new ArrayList<Double>();
+	results.add(1.1);
+	results.add(2.2);
+	return results; // dummy data
     }
 }

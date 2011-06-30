@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 public class BoxObserver extends JFrame {
     private static final long serialVersionUID = -4960193417089067559L;
 
-    public static void main(final String[] args) {
+    public static void main(final String... args) {
 	int grid = 8;
 	if (args.length > 0) {
 	    grid = Integer.parseInt(args[0]);
