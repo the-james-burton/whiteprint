@@ -14,6 +14,7 @@ import org.junit.Test;
  * 
  * @author Brian Goetz and Tim Peierls
  */
+@Ignore
 public class TimedPutTakeTest extends PutTakeTest {
     private BarrierTimer timer = new BarrierTimer();
 
@@ -41,7 +42,6 @@ public class TimedPutTakeTest extends PutTakeTest {
     }
 
     @Test
-    @Ignore
     public void testTimed() throws Exception {
 	PutTakeTest me = new PutTakeTest(); // sample parameters
 	me.setup(10, 10, 100000);
