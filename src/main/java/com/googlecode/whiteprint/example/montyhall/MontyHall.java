@@ -2,6 +2,7 @@ package com.googlecode.whiteprint.example.montyhall;
 
 import java.util.Random;
 import java.util.concurrent.Callable;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class MontyHall implements Callable<Result>{
@@ -20,6 +21,7 @@ public class MontyHall implements Callable<Result>{
 	int done = 0;
 
 	Logger log = Logger.getLogger(MontyHall.class.getName());
+	log.setLevel(Level.INFO);
 
 	while (done++ < iterations) {
 	    Person punter = new Person("punter");
@@ -31,12 +33,12 @@ public class MontyHall implements Callable<Result>{
 	    int choice = random.nextInt(3);
 	    Door punterDoor = puzzle.getDoor(choice);
 	    punter.setDoor(punterDoor);
-	    log.info("punter:" + punterDoor.getNumber());
+	    log.fine("punter:" + punterDoor.getNumber());
 
 	    // host opens an empty door...
 	    Door hostDoor = puzzle.getNonPrizeNonPunterDoor();
 	    host.setDoor(hostDoor);
-	    log.info("host:" + hostDoor.getNumber());
+	    log.fine("host:" + hostDoor.getNumber());
 	    hostDoor.open();
 	    if (hostDoor.isPrize()) {
 		log.fine("door " + hostDoor.getNumber()
@@ -47,16 +49,16 @@ public class MontyHall implements Callable<Result>{
 	    // punter switches doors
 	    Door alternativeDoor = puzzle.getAlternativeDoor();
 	    if (random.nextBoolean()) {
-		log.info("punter has decided to switch to door "
+		log.fine("punter has decided to switch to door "
 			+ alternativeDoor.getNumber());
 		punter.setDoor(alternativeDoor);
 		punter.setSwapped();
-		log.info("switch:" + alternativeDoor.getNumber());
+		log.fine("switch:" + alternativeDoor.getNumber());
 		result.swapped();
 	    } else {
-		log.info("punter has decided to stay at door "
+		log.fine("punter has decided to stay at door "
 			+ punter.getDoor().getNumber());
-		log.info("stay:" + punter.getDoor().getNumber() + ",");
+		log.fine("stay:" + punter.getDoor().getNumber() + ",");
 	    }
 
 	    // has the punter won?
@@ -64,7 +66,7 @@ public class MontyHall implements Callable<Result>{
 		punter.setWon();
 		result.won();
 	    }
-	    log.info(Boolean.toString(punter.isWon()));
+	    log.fine(Boolean.toString(punter.isWon()));
 
 	    // results
 	    // log.info(won + "," + switched);
