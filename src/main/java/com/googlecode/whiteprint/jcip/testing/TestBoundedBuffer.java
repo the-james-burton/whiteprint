@@ -1,6 +1,5 @@
 package com.googlecode.whiteprint.jcip.testing;
 
-import junit.framework.TestCase;
 
 /**
  * TestBoundedBuffer
@@ -9,23 +8,23 @@ import junit.framework.TestCase;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TestBoundedBuffer extends TestCase {
+public class TestBoundedBuffer {
     private static final long LOCKUP_DETECT_TIMEOUT = 1000;
     private static final int CAPACITY = 10000;
     private static final int THRESHOLD = 10000;
 
     void testIsEmptyWhenConstructed() {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);
-        assertTrue(bb.isEmpty());
-        assertFalse(bb.isFull());
+        assert bb.isEmpty() == true;
+        assert bb.isFull() == false;
     }
 
     void testIsFullAfterPuts() throws InterruptedException {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);
         for (int i = 0; i < 10; i++)
             bb.put(i);
-        assertTrue(bb.isFull());
-        assertFalse(bb.isEmpty());
+        assert bb.isFull() == true;
+        assert bb.isEmpty() == false;
     }
 
 
@@ -35,7 +34,7 @@ public class TestBoundedBuffer extends TestCase {
             public void run() {
                 try {
                     int unused = bb.take();
-                    fail(); // if we get here, it's an error
+                    assert false; // if we get here, it's an error
                 } catch (InterruptedException success) {
                 }
             }
@@ -45,9 +44,9 @@ public class TestBoundedBuffer extends TestCase {
             Thread.sleep(LOCKUP_DETECT_TIMEOUT);
             taker.interrupt();
             taker.join(LOCKUP_DETECT_TIMEOUT);
-            assertFalse(taker.isAlive());
+            assert taker.isAlive() == false;
         } catch (Exception unexpected) {
-            fail();
+            assert false;
         }
     }
 
@@ -63,7 +62,7 @@ public class TestBoundedBuffer extends TestCase {
         for (int i = 0; i < CAPACITY; i++)
             bb.take();
         int heapSize2 = snapshotHeap();
-        assertTrue(Math.abs(heapSize1 - heapSize2) < THRESHOLD);
+        assert Math.abs(heapSize1 - heapSize2) < THRESHOLD;
     }
 
     private int snapshotHeap() {
