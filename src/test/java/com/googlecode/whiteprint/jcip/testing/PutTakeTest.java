@@ -47,7 +47,7 @@ public class PutTakeTest implements Runnable {
 	try {
 	    for (int i = 0; i < nPairs; i++) {
 		pool.execute(new Producer(barrier, bb, i, putSum));
-		pool.execute(new Consumer(barrier, bb, i, putSum));
+		pool.execute(new Consumer(barrier, bb, i, takeSum));
 	    }
 	    barrier.await(); // wait for all threads to be ready
 	    barrier.await(); // wait for all threads to finish

@@ -4,6 +4,7 @@ import java.util.concurrent.CyclicBarrier;
 
 import junit.framework.TestCase;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 /**
@@ -27,7 +28,7 @@ public class TimedPutTakeTest extends PutTakeTest {
 	    timer.clear();
 	    for (int i = 0; i < nPairs; i++) {
 		pool.execute(new Producer(barrier, bb, i, putSum));
-		pool.execute(new Consumer(barrier, bb, i, putSum));
+		pool.execute(new Consumer(barrier, bb, i, takeSum));
 	    }
 	    barrier.await();
 	    barrier.await();
@@ -40,6 +41,7 @@ public class TimedPutTakeTest extends PutTakeTest {
     }
 
     @Test
+    @Ignore
     public void testTimed() throws Exception {
 	PutTakeTest me = new PutTakeTest(); // sample parameters
 	me.setup(10, 10, 100000);
