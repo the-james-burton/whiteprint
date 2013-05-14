@@ -5,6 +5,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -18,12 +19,17 @@ import org.junit.Test;
 public class OutOfTime {
     
     @Test
-    public void testOutOfTime() throws Exception {
-        Timer timer = new Timer();
-        timer.schedule(new ThrowTask(), 1);
-        SECONDS.sleep(1);
-        timer.schedule(new ThrowTask(), 1);
-        SECONDS.sleep(5);
+    public void testOutOfTime() {
+	
+        try {
+	    Timer timer = new Timer();
+	    timer.schedule(new ThrowTask(), 1);
+	    SECONDS.sleep(1);
+	    timer.schedule(new ThrowTask(), 1);
+	    SECONDS.sleep(5);
+	} catch (Exception e) {
+	    Assert.assertEquals("Timer already cancelled.", e.getMessage());
+	}
     }
 
     static class ThrowTask extends TimerTask {
