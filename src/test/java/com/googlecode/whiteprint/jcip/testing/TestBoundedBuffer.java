@@ -1,6 +1,8 @@
 package com.googlecode.whiteprint.jcip.testing;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+
 
 /**
  * TestBoundedBuffer
@@ -9,33 +11,36 @@ import junit.framework.TestCase;
  *
  * @author Brian Goetz and Tim Peierls
  */
-public class TestBoundedBuffer extends TestCase {
+public class TestBoundedBuffer {
     private static final long LOCKUP_DETECT_TIMEOUT = 1000;
     private static final int CAPACITY = 10000;
     private static final int THRESHOLD = 10000;
 
-    void testIsEmptyWhenConstructed() {
+    @Test
+    public void testIsEmptyWhenConstructed() {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);
-        assertTrue(bb.isEmpty());
-        assertFalse(bb.isFull());
+        Assert.assertTrue(bb.isEmpty());
+        Assert.assertFalse(bb.isFull());
     }
 
-    void testIsFullAfterPuts() throws InterruptedException {
+    @Test
+    public void testIsFullAfterPuts() throws InterruptedException {
         SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);
         for (int i = 0; i < 10; i++)
             bb.put(i);
-        assertTrue(bb.isFull());
-        assertFalse(bb.isEmpty());
+        Assert.assertTrue(bb.isFull());
+        Assert.assertFalse(bb.isEmpty());
     }
 
 
-    void testTakeBlocksWhenEmpty() {
+    @Test
+    public void testTakeBlocksWhenEmpty() {
         final SemaphoreBoundedBuffer<Integer> bb = new SemaphoreBoundedBuffer<Integer>(10);
         Thread taker = new Thread() {
             public void run() {
                 try {
                     int unused = bb.take();
-                    fail(); // if we get here, it's an error
+                    Assert.fail(); // if we get here, it's an error
                 } catch (InterruptedException success) {
                 }
             }
@@ -45,9 +50,9 @@ public class TestBoundedBuffer extends TestCase {
             Thread.sleep(LOCKUP_DETECT_TIMEOUT);
             taker.interrupt();
             taker.join(LOCKUP_DETECT_TIMEOUT);
-            assertFalse(taker.isAlive());
+            Assert.assertFalse(taker.isAlive());
         } catch (Exception unexpected) {
-            fail();
+            Assert.fail();
         }
     }
 
@@ -55,15 +60,21 @@ public class TestBoundedBuffer extends TestCase {
         double[] data = new double[100000];
     }
 
-    void testLeak() throws InterruptedException {
-        SemaphoreBoundedBuffer<Big> bb = new SemaphoreBoundedBuffer<Big>(CAPACITY);
-        int heapSize1 = snapshotHeap();
-        for (int i = 0; i < CAPACITY; i++)
-            bb.put(new Big());
-        for (int i = 0; i < CAPACITY; i++)
-            bb.take();
-        int heapSize2 = snapshotHeap();
-        assertTrue(Math.abs(heapSize1 - heapSize2) < THRESHOLD);
+    @Test
+    public void testLeak() throws InterruptedException {
+        try {
+	    SemaphoreBoundedBuffer<Big> bb = new SemaphoreBoundedBuffer<Big>(CAPACITY);
+	    int heapSize1 = snapshotHeap();
+	    for (int i = 0; i < CAPACITY; i++)
+	        bb.put(new Big());
+	    for (int i = 0; i < CAPACITY; i++)
+	        bb.take();
+	    int heapSize2 = snapshotHeap();
+	    Assert.assertTrue(Math.abs(heapSize1 - heapSize2) < THRESHOLD);
+	} catch (Throwable e) {
+	    Assert.assertTrue(e instanceof OutOfMemoryError);
+	    Assert.assertEquals("Java heap space", e.getMessage());
+	}
     }
 
     private int snapshotHeap() {
