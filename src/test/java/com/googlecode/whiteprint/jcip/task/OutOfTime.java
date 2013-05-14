@@ -5,7 +5,6 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 /**
