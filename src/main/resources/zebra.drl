@@ -1,0 +1,45 @@
+package zebra
+
+import com.googlecode.whiteprint.example.zebra.*;
+
+rule solve
+when
+	$n: Nationalities( $ln: list )
+	eval( $ln.get(0) == Nationality.NORWEGIAN )
+	$d: Drinks( $ld: list)
+	eval( $ld.get(2) == Drink.MILK &&
+	$n.indexOf( Nationality.UKRAINIAN ) ==
+	$d.indexOf( Drink.TEA ) )
+	$c: Colours( $lc: list )
+	eval( Math.abs( $n.indexOf(Nationality.NORWEGIAN) -
+	$c.indexOf( Colour.BLUE ) ) == 1 &&
+	$c.indexOf( Colour.GREEN ) ==
+	1 + $c.indexOf( Colour.IVORY ) &&
+	$c.indexOf( Colour.RED ) ==
+	$n.indexOf( Nationality.ENGLISHMAN ) &&
+	$c.indexOf( Colour.GREEN ) ==
+	$d.indexOf( Drink.COFFEE ) )
+	$s: Smokes( $ls: list)
+	eval( $c.indexOf( Colour.YELLOW ) ==
+	$s.indexOf( Smoke.KOOLS ) &&
+	$n.indexOf( Nationality.JAPANESE ) ==
+	$s.indexOf( Smoke.PARLIAMENTS ) &&
+	$s.indexOf( Smoke.LUCKY_STRIKE ) ==
+	$d.indexOf( Drink.ORANGE_JUICE ) )
+	$a: Animals( $la: list )
+	eval( $n.indexOf( Nationality.SPANIARD ) ==
+	$a.indexOf( Animal.DOG ) &&
+	$s.indexOf( Smoke.OLD_GOLD ) ==
+	$a.indexOf( Animal.SNAILS ) &&
+	Math.abs( $s.indexOf( Smoke.CHESTERFIELDS ) -
+	$a.indexOf( Animal.FOX ) ) == 1 &&
+	Math.abs( $s.indexOf( Smoke.KOOLS ) -
+	$a.indexOf( Animal.HORSE ) ) == 1 )
+then
+	System.out.println( "Solution:" );
+	System.out.println( $n );
+	System.out.println( $c );
+	System.out.println( $a );
+	System.out.println( $d );
+	System.out.println( $s );
+end
