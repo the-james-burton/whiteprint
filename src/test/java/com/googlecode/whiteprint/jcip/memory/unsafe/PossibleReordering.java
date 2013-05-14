@@ -14,7 +14,7 @@ public class PossibleReordering {
     static int a = 0, b = 0;
 
     @Test
-    public void test() throws Exception {
+    public void testPossibleReordering() throws InterruptedException {
         Thread one = new Thread(new Runnable() {
             public void run() {
                 a = 1;
