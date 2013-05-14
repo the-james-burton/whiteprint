@@ -31,7 +31,7 @@ import org.junit.Test;
  *
  * Who drinks water? Who owns the zebra?
  * 
- * @author burtojf
+ * @author redhat
  *
  */
 public class ZebraPuzzle {
