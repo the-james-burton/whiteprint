@@ -12,29 +12,24 @@ import org.junit.Test;
  * OutOfTime
  * <p/>
  * Class illustrating confusing Timer behavior
- *
+ * 
  * @author Brian Goetz and Tim Peierls
  */
 
 public class OutOfTime {
-    
-    @Test
-    public void testOutOfTime() {
-	
-        try {
-	    Timer timer = new Timer();
-	    timer.schedule(new ThrowTask(), 1);
-	    SECONDS.sleep(1);
-	    timer.schedule(new ThrowTask(), 1);
-	    SECONDS.sleep(5);
-	} catch (Exception e) {
-	    Assert.assertEquals("Timer already cancelled.", e.getMessage());
-	}
+
+    @Test(expected = IllegalStateException.class)
+    public void testOutOfTime() throws InterruptedException {
+	Timer timer = new Timer();
+	timer.schedule(new ThrowTask(), 1);
+	SECONDS.sleep(1);
+	timer.schedule(new ThrowTask(), 1);
+	SECONDS.sleep(5);
     }
 
     static class ThrowTask extends TimerTask {
-        public void run() {
-            throw new RuntimeException();
-        }
+	public void run() {
+	    throw new RuntimeException();
+	}
     }
 }

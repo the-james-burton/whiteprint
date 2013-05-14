@@ -57,6 +57,12 @@
 				<version>2.14.1</version>
 				<configuration>
 					<testFailureIgnore>true</testFailureIgnore>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
+					<excludes>
+						<excludes>**/*PutTakeTest.java</excludes>
+					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
