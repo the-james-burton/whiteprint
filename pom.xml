@@ -63,7 +63,6 @@
 					<excludes>
 						<!-- TODO consider making the PutTakeTest threadsafe -->
 						<exclude>**/*PutTakeTest.java</exclude>
-						<exclude>**/TestThreadPool.java</exclude>
 						<!-- exclude webserver style tests -->
 						<exclude>**/*WebServer.java</exclude>
 						<!-- exclude UI launching tests -->
