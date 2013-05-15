@@ -28,6 +28,7 @@ public class TestThreadPool {
             exec.execute(new Runnable() {
                 public void run() {
                     try {
+                	threadFactory.newThread(this);
                         Thread.sleep(Long.MAX_VALUE);
                     } catch (InterruptedException e) {
                         Thread.currentThread().interrupt();
