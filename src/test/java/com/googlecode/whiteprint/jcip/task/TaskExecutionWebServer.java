@@ -22,7 +22,6 @@ public class TaskExecutionWebServer {
             = Executors.newFixedThreadPool(NTHREADS);
 
     @Test
-    @Ignore
     public void testTaskExecutionWebServer() throws IOException {
         ServerSocket socket = new ServerSocket(80);
         while (true) {

@@ -1,5 +1,6 @@
 package com.googlecode.whiteprint.headfirst.templatemethod.barista;
 
+import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 
 public class BeverageTestDrive {
@@ -17,7 +18,10 @@ public class BeverageTestDrive {
 	coffee.prepareRecipe();
 
 	TeaWithHook teaHook = new TeaWithHook();
+	System.setIn(IOUtils.toInputStream("y\n"));
 	CoffeeWithHook coffeeHook = new CoffeeWithHook();
+	System.setIn(IOUtils.toInputStream("y\n"));
+	System.setIn(System.in);
 
 	System.out.println("\nMaking tea...");
 	teaHook.prepareRecipe();

@@ -18,7 +18,6 @@ import org.junit.Test;
 public class SingleThreadWebServer {
     
     @Test
-    @Ignore
     public void testSingleThreadWebServer() throws IOException {
         ServerSocket socket = new ServerSocket(80);
         while (true) {

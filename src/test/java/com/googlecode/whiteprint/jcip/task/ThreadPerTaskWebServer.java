@@ -17,7 +17,6 @@ import org.junit.Test;
 public class ThreadPerTaskWebServer {
     
     @Test
-    @Ignore
     public void testThreadPerTaskWebServer() throws IOException {
         ServerSocket socket = new ServerSocket(80);
         while (true) {

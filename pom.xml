@@ -61,7 +61,16 @@
 						<include>**/*.java</include>
 					</includes>
 					<excludes>
-						<excludes>**/*PutTakeTest.java</excludes>
+						<!-- TODO consider making the PutTakeTest threadsafe -->
+						<exclude>**/*PutTakeTest.java</exclude>
+						<exclude>**/TestThreadPool.java</exclude>
+						<!-- exclude webserver style tests -->
+						<exclude>**/*WebServer.java</exclude>
+						<!-- exclude UI launching tests -->
+						<exclude>**/DJTestDrive.java</exclude>
+						<exclude>**/HeartTestDrive.java</exclude>
+						<exclude>**/HomeTheaterTestDrive.java</exclude>
+						<exclude>**/ImageProxyTestDrive.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -125,6 +134,12 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>1.3.2</version>
 		</dependency>
 
 		<dependency>
